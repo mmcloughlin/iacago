@@ -1,0 +1,6 @@
+#define IACA_MARK(ID) \
+  MOVL $ID, BX; \
+  BYTE $0x64; BYTE $0x67; BYTE $0x90;
+
+#define IACA_START IACA_MARK(111)
+#define IACA_END IACA_MARK(222)
