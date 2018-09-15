@@ -2,14 +2,14 @@ language: go
 go:
 - 1.x
 install:
-- curl --form accept_license=1
+- curl -vvv --form accept_license=1
        --output /dev/null
        --cookie-jar jar.txt
        --location
-       https://software.intel.com/protected-download/267266/157552
-- curl --cookie jar.txt
+       'https://software.intel.com/protected-download/267266/157552'
+- curl -vvv --cookie jar.txt
        --output iaca.zip
-       https://software.intel.com/system/files/managed/c8/65/iaca-version-v3.0-lin64.zip
+       'https://software.intel.com/system/files/managed/c8/65/iaca-version-v3.0-lin64.zip'
 - unzip iaca.zip
 - export IACA_PATH=${TRAVIS_BUILD_DIR}/iaca-lin64
 script:
